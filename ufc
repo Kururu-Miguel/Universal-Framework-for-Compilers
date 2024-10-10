@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+
+#extrái a extensão do arquivo digitado pelo usuário
+ext="${$1##*.}"
+echo "$ext"
+exit 0
