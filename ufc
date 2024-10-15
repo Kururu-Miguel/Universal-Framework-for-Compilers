@@ -3,12 +3,10 @@
 
 #Verifica se o usuário passou os parâmetros corretamente
 [[ $# -ne 1 ]] && echo "Error 1: Parâmetros incorretos, use ufc --help para mais informações" && exit 1
-
-
 #Extrái a extensão do arquivo digitado pelo usuário
 ext="${1##*.}"
-
-
+#Verifica se o arquivo existe
+[[ -f $1 ]] || echo "Error 2: O arquivo especificado não fo encontrado, certifique-se de estar na mesma pasta que o arquivo" && exit 2
 #Executa o compilador correspondente
 #shell script
 if [[ $ext == $1 || $ext == "sh" ]]; then
