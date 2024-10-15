@@ -1,7 +1,22 @@
 #!/usr/bin/env bash
 
 
-#extrái a extensão do arquivo digitado pelo usuário
-ext="${$1##*.}"
-echo "$ext"
+#Verifica se o usuário passou os parâmetros corretamente
+[[ $# -ne 1 ]] && echo "Error 1: Parâmetros incorretos, use ufc --help para mais informações" && exit 1
+
+
+#Extrái a extensão do arquivo digitado pelo usuário
+ext="${1##*.}"
+
+
+#Executa o compilador correspondente
+#shell script
+if [[ $ext == $1 || $ext == "sh" ]]; then
+	./$1
+#python
+elif [[ $ext == "py" ]]; then
+	python3 -u $1
+fi
+
+
 exit 0
