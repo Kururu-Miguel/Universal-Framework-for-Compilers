@@ -5,9 +5,13 @@
 arquivo=$1
 [[ ! -f $arquivo ]] && echo "Erro 2: O arquivo especificado não existe." && exit 2 #Verifica se o arquivo especificado existe
 ext=${arquivo##*.} #Retira a extensão do arquivo e a armazena em uma variável
-case $ext in #Vai executar o compilador correnspondente a cada extensão
+case $ext in #Vai executar o `compilador` correnspondente a cada extensão
 	"py")
 		python3 -u $arquivo  ;; #Python
 	"sh"|$arquivo)
 		./$arquivo  ;; #shell script
+	"js")
+		node $arquivo  ;; #Java Script
+	"html")
+		live-server $arquivo  ;; #HTML (não é uma linguagem de programação)
 esac
