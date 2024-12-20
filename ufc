@@ -14,4 +14,6 @@ case $ext in #Vai executar o `compilador` correnspondente a cada extensão
 		node $arquivo  ;; #Java Script
 	"html")
 		live-server $arquivo  ;; #HTML (não é uma linguagem de programação)
+	"cpp"|"c")
+		g++ $arquivo -o exec  ;;
 esac
